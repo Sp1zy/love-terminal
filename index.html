@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian & Kim | Bubu & Dudu's Love Terminal</title>
+    <!-- Linked CSS File -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header-bar">
+        <div class="header-container">
+            <div class="profile-info">
+                <div class="avatar-badge">🐻🐼</div>
+                <div class="title-group">
+                    <h1>Christian & Kim</h1>
+                    <p>Dudu & Bubu • Since May 25, 2025</p>
+                </div>
+            </div>
+
+            <div class="role-toggle">
+                <button id="btnDudu" onclick="setRole('dudu')" class="role-btn active">Dudu 🐻 (Christian)</button>
+                <button id="btnBubu" onclick="setRole('bubu')" class="role-btn">Bubu 🐼 (Kim)</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+
+        <!-- Hero Section -->
+        <section class="bubu-card hero-card">
+            <div class="hero-tag">✨ Official Bubu & Dudu Love Space</div>
+            <h2 class="hero-title">Every Second With You Is My Favorite Memory</h2>
+            <p class="hero-subtitle">From burger first dates to dream S-Class sunsets. Always by each other's side through everything.</p>
+
+            <!-- Together Timer -->
+            <div class="counter-grid">
+                <div class="counter-box">
+                    <span id="daysNum" class="counter-num">0</span>
+                    <span class="counter-label">Days</span>
+                </div>
+                <div class="counter-box">
+                    <span id="hoursNum" class="counter-num">0</span>
+                    <span class="counter-label">Hours</span>
+                </div>
+                <div class="counter-box">
+                    <span id="minsNum" class="counter-num">0</span>
+                    <span class="counter-label">Mins</span>
+                </div>
+                <div class="counter-box">
+                    <span id="secsNum" class="counter-num">0</span>
+                    <span class="counter-label">Secs</span>
+                </div>
+            </div>
+
+            <!-- Birthdays Header -->
+            <div class="birthdays-bar">
+                <div>🎂 <strong>Kim (Bubu):</strong> Feb 26, 2004</div>
+                <span style="opacity: 0.3;">|</span>
+                <div>🎂 <strong>Christian (Dudu):</strong> Sep 23, 2002</div>
+            </div>
+        </section>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+
+            <!-- Hug Counter -->
+            <section class="bubu-card hug-section">
+                <div>
+                    <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 4px;">Send a Virtual Hug 🤗</h3>
+                    <p style="font-size: 0.75rem; color: #78350f; opacity: 0.8;">Tap to send a bear hug to your favorite person!</p>
+                </div>
+
+                <button class="hug-btn" onclick="sendHug()">🐻❤️🐼</button>
+
+                <div>
+                    <div id="hugCount" style="font-size: 1.8rem; font-weight: 800; color: #451a03;">0</div>
+                    <p id="lastHugText" style="font-size: 0.75rem; font-weight: 700; color: #78350f; opacity: 0.7;">Tap the bears above!</p>
+                </div>
+            </section>
+
+            <!-- Song List Card -->
+            <section class="bubu-card">
+                <h3 style="font-size: 1.1rem; color: #451a03;">Our Songs 🎶</h3>
+                <div class="songs-list">
+                    <div class="song-item">
+                        <div>
+                            <div class="song-artist">Christian's Pick</div>
+                            <div class="song-title">Clean Bandit - Rather Be</div>
+                        </div>
+                        <span style="font-size: 1.2rem;">🎧</span>
+                    </div>
+                    <div class="song-item">
+                        <div>
+                            <div class="song-artist">Kim's Song</div>
+                            <div class="song-title">Shania Twain - You're Still The One</div>
+                        </div>
+                        <span style="font-size: 1.2rem;">🌹</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.7rem; color: #78350f; opacity: 0.7; text-align: center; margin-top: 14px; font-style: italic;">
+                    "You're still the one I run to, the one that I belong to..."
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Notes Section -->
+        <section class="bubu-card">
+            <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 4px;">Live Love Notes 💌</h3>
+            <p style="font-size: 0.75rem; color: #78350f; opacity: 0.8; margin-bottom: 12px;">Leave a sweet message for each other!</p>
+
+            <div class="note-input-group">
+                <input type="text" id="noteInput" placeholder="Write a cute note..." class="note-input">
+                <button onclick="sendNote()" class="btn-send">Send Note ❤️</button>
+            </div>
+
+            <div id="notesContainer" class="notes-container">
+                <div class="note-card" style="justify-content: center; font-style: italic; opacity: 0.7;">
+                    No notes sent yet. Write something cute above!
+                </div>
+            </div>
+        </section>
+
+        <!-- Ideal Date Plan -->
+        <section class="bubu-card">
+            <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 8px;">🌅 Our Ideal Dream Date</h3>
+            <p style="font-size: 0.8rem; color: #78350f; opacity: 0.85; line-height: 1.4;">
+                A walk in the park, getting back from work, a huge bouquet of flowers hiding in our dream Mercedes S-Class with teddy bears and a jewelry box, beach sunsets, spontaneous movie night with McDonald's in the car, and falling asleep in each other's arms. ✨
+            </p>
+
+            <div class="date-highlights">
+                <div class="date-box"><span>💐</span>Red Roses</div>
+                <div class="date-box"><span>🚗</span>S-Class Sunset</div>
+                <div class="date-box"><span>🍟</span>McDonald's</div>
+                <div class="date-box"><span>🍿</span>Cinema Night</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Made with endless love by Christian (Dudu) for Kim (Bubu) • Forever & Always 💕
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+                const startDate = new Date("2025-05-25T00:00:00");
+                let currentRole = "dudu";
+                let hugCount = parseInt(localStorage.getItem('bubu_hug_count') || '0');
+
+                function updateTimer() {
+                    const now = new Date();
+                    const diff = now - startDate;
+
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const mins = Math.floor((diff / 1000 / 60) % 60);
+                    const secs = Math.floor((diff / 1000) % 60);
+
+                    document.getElementById('daysNum').innerText = days;
+                    document.getElementById('hoursNum').innerText = hours;
+                    document.getElementById('minsNum').innerText = mins;
+                    document.getElementById('secsNum').innerText = secs;
+                }
+                setInterval(updateTimer, 1000);
+                updateTimer();
+
+                function setRole(role) {
+                    currentRole = role;
+                    const btnDudu = document.getElementById('btnDudu');
+                    const btnBubu = document.getElementById('btnBubu');
+
+                    if (role === 'dudu') {
+                        btnDudu.className = "role-btn active";
+                        btnBubu.className = "role-btn";
+                    } else {
+                        btnBubu.className = "role-btn active";
+                        btnDudu.className = "role-btn";
+                    }
+                }
+
+                function sendHug() {
+                    hugCount++;
+                    localStorage.setItem('bubu_hug_count', hugCount);
+                    document.getElementById('hugCount').innerText = hugCount;
+
+                    const sender = currentRole === 'dudu' ? 'Christian (Dudu)' : 'Kim (Bubu)';
+                    document.getElementById('lastHugText').innerText = `Last hug sent by ${sender}!`;
+
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 40,
+                            spread: 60,
+                            origin: { y: 0.7 },
+                            colors: ['#f59e0b', '#d97706', '#fef3c7']
+                        });
+                    }
+                }
+                document.getElementById('hugCount').innerText = hugCount;
+
+                function sendNote() {
+                    const input = document.getElementById('noteInput');
+                    const text = input.value.trim();
+                    if (!text) return;
+
+                    const container = document.getElementById('notesContainer');
+                    const sender = currentRole === 'dudu' ? '🐻 Christian' : '🐼 Kim';
+
+                    if (container.children[0] && container.children[0].innerText.includes('No notes sent yet')) {
+                        container.innerHTML = '';
+                    }
+
+                    const noteDiv = document.createElement('div');
+                    noteDiv.className = "note-card";
+                    noteDiv.innerHTML = `<span><strong>${sender}:</strong> ${text}</span> <span style="font-size:0.65rem; opacity:0.6;">Just now</span>`;
+
+                    container.prepend(noteDiv);
+                    input.value = '';
+
+                    if (typeof confetti === 'function') {
+                        confetti({ particleCount: 20, spread: 40, origin: { y: 0.8 } });
+                    }
+                }
+    </script>
+</body>
+</html>
