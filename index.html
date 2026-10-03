@@ -21,7 +21,7 @@
                 <div class="avatar-badge">🐻🐼</div>
                 <div class="title-group">
                     <h1>Christian & Kim</h1>
-                    <p>Dudu & Bubu • Since May 25, 2025</p>
+                    <p>Dudu & Bubu • Forever & Always</p>
                 </div>
             </div>
 
@@ -35,29 +35,40 @@
     <!-- Main Content -->
     <main class="main-wrapper">
 
-        <!-- Hero Section -->
+        <!-- Proposal / Timer Hero Section -->
         <section class="bubu-card hero-card">
             <div class="hero-tag">✨ Official Bubu & Dudu Love Space</div>
-            <h2 class="hero-title">Every Second With You Is My Favorite Memory</h2>
-            <p class="hero-subtitle">From burger first dates to dream S-Class sunsets. Always by each other's side through everything.</p>
+            
+            <!-- Proposal Box (Shows if she hasn't said Yes yet) -->
+            <div id="proposalBox" class="proposal-container">
+                <h2 class="hero-title">Will you be my girlfriend? 🌹</h2>
+                <p class="hero-subtitle">You make my world brighter every single day. Will you make it official with me?</p>
+                <button onclick="acceptProposal()" class="btn-yes">Yes, I will! ❤️</button>
+            </div>
 
-            <!-- Together Timer -->
-            <div class="counter-grid">
-                <div class="counter-box">
-                    <span id="daysNum" class="counter-num">0</span>
-                    <span class="counter-label">Days</span>
-                </div>
-                <div class="counter-box">
-                    <span id="hoursNum" class="counter-num">0</span>
-                    <span class="counter-label">Hours</span>
-                </div>
-                <div class="counter-box">
-                    <span id="minsNum" class="counter-num">0</span>
-                    <span class="counter-label">Mins</span>
-                </div>
-                <div class="counter-box">
-                    <span id="secsNum" class="counter-num">0</span>
-                    <span class="counter-label">Secs</span>
+            <!-- Timer Box (Shows after Yes is clicked) -->
+            <div id="timerBox" class="timer-container" style="display: none;">
+                <h2 class="hero-title">Every Second With You Is My Favorite Memory</h2>
+                <p id="officialDateText" class="hero-subtitle">Together since...</p>
+
+                <!-- Together Timer -->
+                <div class="counter-grid">
+                    <div class="counter-box">
+                        <span id="daysNum" class="counter-num">0</span>
+                        <span class="counter-label">Days</span>
+                    </div>
+                    <div class="counter-box">
+                        <span id="hoursNum" class="counter-num">0</span>
+                        <span class="counter-label">Hours</span>
+                    </div>
+                    <div class="counter-box">
+                        <span id="minsNum" class="counter-num">0</span>
+                        <span class="counter-label">Mins</span>
+                    </div>
+                    <div class="counter-box">
+                        <span id="secsNum" class="counter-num">0</span>
+                        <span class="counter-label">Secs</span>
+                    </div>
                 </div>
             </div>
 
@@ -87,34 +98,30 @@
                 </div>
             </section>
 
-<!-- Song List Card -->
-<section class="bubu-card">
-    <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Songs 🎶</h3>
-    <div class="songs-list">
-        
-        <!-- Christian's Pick -->
-        <a href="https://www.youtube.com/watch?v=m-M1AtrxztU" target="_blank" class="song-item song-link">
-            <div>
-                <div class="song-artist">Christian's Pick</div>
-                <div class="song-title">Clean Bandit - Rather Be</div>
-            </div>
-            <span style="font-size: 1.2rem;">🎧 ↗</span>
-        </a>
+            <!-- Song List Card -->
+            <section class="bubu-card">
+                <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Songs 🎶</h3>
+                <div class="songs-list">
+                    <a href="https://www.youtube.com/watch?v=m-M1AtrxztU" target="_blank" class="song-item song-link">
+                        <div>
+                            <div class="song-artist">Christian's Pick</div>
+                            <div class="song-title">Clean Bandit - Rather Be</div>
+                        </div>
+                        <span style="font-size: 1.2rem;">🎧 ↗</span>
+                    </a>
 
-        <!-- Kim's Song -->
-        <a href="https://www.youtube.com/watch?v=KNZH-emehxA" target="_blank" class="song-item song-link">
-            <div>
-                <div class="song-artist">Kim's Song</div>
-                <div class="song-title">Shania Twain - You're Still The One</div>
-            </div>
-            <span style="font-size: 1.2rem;">🌹 ↗</span>
-        </a>
-
-    </div>
-    <p style="font-size: 0.7rem; color: #78350f; opacity: 0.7; text-align: center; margin-top: 14px; font-style: italic;">
-        "You're still the one I run to, the one that I belong to..."
-    </p>
-</section>
+                    <a href="https://www.youtube.com/watch?v=KNZH-emehxA" target="_blank" class="song-item song-link">
+                        <div>
+                            <div class="song-artist">Kim's Song</div>
+                            <div class="song-title">Shania Twain - You're Still The One</div>
+                        </div>
+                        <span style="font-size: 1.2rem;">🌹 ↗</span>
+                    </a>
+                </div>
+                <p style="font-size: 0.7rem; color: #78350f; opacity: 0.7; text-align: center; margin-top: 14px; font-style: italic;">
+                    "You're still the one I run to, the one that I belong to..."
+                </p>
+            </section>
 
         </div>
 
@@ -131,6 +138,34 @@
             <div id="notesContainer" class="notes-container">
                 <div class="note-card" style="justify-content: center; font-style: italic; opacity: 0.7;">
                     Loading live notes...
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Memories Section -->
+        <section class="bubu-card">
+            <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Favorite Memories 📸</h3>
+            <div class="memories-timeline">
+                <div class="memory-item">
+                    <div class="memory-icon">🍔</div>
+                    <div class="memory-content">
+                        <strong>First Burger Date</strong>
+                        <p>Where our sweet journey officially started together over delicious food.</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <div class="memory-icon">🎮</div>
+                    <div class="memory-content">
+                        <strong>Minecraft Adventures</strong>
+                        <p>Building our cute custom world and sharing laughs across the distance.</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <div class="memory-icon">💌</div>
+                    <div class="memory-content">
+                        <strong>Building Our Terminal</strong>
+                        <p>Creating our own private online love space live together.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,9 +191,8 @@
         Made with endless love by Christian (Dudu) for Kim (Bubu) • Forever & Always 💕
     </footer>
 
-  <!-- Logic & Firebase Realtime Sync -->
+    <!-- Logic & Firebase Realtime Sync -->
     <script>
-        // 1. Your official Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyBQCrSupyRlxIuPVzxhvkA6QTygdN7grhw",
             authDomain: "loveterminal-327ac.firebaseapp.com",
@@ -179,28 +213,77 @@
             console.warn("Firebase offline or local mode:", e);
         }
 
-        const startDate = new Date("2025-05-25T00:00:00");
+        let startDate = null;
+        let timerInterval = null;
         let currentRole = "dudu";
 
-        // 2. Together Timer
-        function updateTimer() {
-            const now = new Date();
-            const diff = now - startDate;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const mins = Math.floor((diff / 1000 / 60) % 60);
-            const secs = Math.floor((diff / 1000) % 60);
-
-            document.getElementById('daysNum').innerText = days;
-            document.getElementById('hoursNum').innerText = hours;
-            document.getElementById('minsNum').innerText = mins;
-            document.getElementById('secsNum').innerText = secs;
+        // 1. Proposal & Relationship Timer Logic
+        if (db) {
+            db.collection("app_data").doc("relationship").onSnapshot((doc) => {
+                if (doc.exists && doc.data().acceptedAt) {
+                    const data = doc.data();
+                    startDate = data.acceptedAt.toDate();
+                    showTimer(startDate, data.formattedDate);
+                } else {
+                    document.getElementById('proposalBox').style.display = "block";
+                    document.getElementById('timerBox').style.display = "none";
+                }
+            });
         }
-        setInterval(updateTimer, 1000);
-        updateTimer();
 
-        // 3. Role Toggle
+        function acceptProposal() {
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-US', { 
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
+
+            if (db) {
+                db.collection("app_data").doc("relationship").set({
+                    acceptedAt: firebase.firestore.Timestamp.fromDate(now),
+                    formattedDate: formattedDate,
+                    acceptedBy: currentRole === 'dudu' ? 'Christian' : 'Kim'
+                });
+            } else {
+                startDate = now;
+                showTimer(now, formattedDate);
+            }
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        function showTimer(date, dateStr) {
+            document.getElementById('proposalBox').style.display = "none";
+            document.getElementById('timerBox').style.display = "block";
+            document.getElementById('officialDateText').innerText = `Official since: ${dateStr}`;
+
+            if (timerInterval) clearInterval(timerInterval);
+
+            function updateTimer() {
+                const now = new Date();
+                const diff = now - date;
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const mins = Math.floor((diff / 1000 / 60) % 60);
+                const secs = Math.floor((diff / 1000) % 60);
+
+                document.getElementById('daysNum').innerText = days;
+                document.getElementById('hoursNum').innerText = hours;
+                document.getElementById('minsNum').innerText = mins;
+                document.getElementById('secsNum').innerText = secs;
+            }
+
+            timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        // 2. Role Toggle
         function setRole(role) {
             currentRole = role;
             const btnDudu = document.getElementById('btnDudu');
@@ -215,7 +298,7 @@
             }
         }
 
-        // 4. Hug Counter Sync (Firestore + Local Fallback)
+        // 3. Hug Counter Sync
         let localHugs = parseInt(localStorage.getItem('bubu_hug_count') || '0');
 
         if (db) {
@@ -228,7 +311,6 @@
                     }
                 }
             }, (err) => {
-                console.log("Using local hug storage");
                 document.getElementById('hugCount').innerText = localHugs;
             });
         } else {
@@ -261,7 +343,7 @@
             }
         }
 
-        // 5. Notes Sync (Firestore + Local Fallback)
+        // 4. Notes Sync
         if (db) {
             db.collection("notes").orderBy("timestamp", "desc").limit(10).onSnapshot((snapshot) => {
                 const container = document.getElementById('notesContainer');
@@ -312,7 +394,5 @@
             }
         }
     </script>
-</body>
-</html>
 </body>
 </html>
