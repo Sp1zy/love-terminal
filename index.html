@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian & Kim | Bubu & Dudu's Love Terminal</title>
-    <!-- Linked CSS File -->
+    <title>Christian & Kim | Bubu & Dudu's Love Space</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
@@ -32,58 +29,39 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-wrapper">
 
-        <!-- Proposal / Timer Hero Section -->
+        <!-- Low-Pressure Daily Care Hero Card -->
         <section class="bubu-card hero-card">
-            <div class="hero-tag">✨ Official Bubu & Dudu Love Space</div>
+            <div class="hero-tag">✨ Bubu & Dudu Daily Safe Space</div>
             
-            <!-- Proposal Box (Shows if she hasn't said Yes yet) -->
-            <div id="proposalBox" class="proposal-container">
-                <h2 class="hero-title">Will you be my girlfriend? 🌹</h2>
-                <p class="hero-subtitle">You make my world brighter every single day. Will you make it official with me?</p>
-                <button onclick="acceptProposal()" class="btn-yes">Yes, I will! ❤️</button>
+            <h2 class="hero-title">How is Bubu feeling today? 🐼</h2>
+            <p class="hero-subtitle">Tap your current vibe so Dudu knows how to care for you today!</p>
+
+            <!-- Mood Buttons -->
+            <div class="mood-grid">
+                <button onclick="sendMood('Need a Hug 🥺')" class="mood-btn">🥺 Need Hug</button>
+                <button onclick="sendMood('Stressed / Tired 😴')" class="mood-btn">😴 Tired</button>
+                <button onclick="sendMood('Happy & Cozy 💖')" class="mood-btn">💖 Happy</button>
+                <button onclick="sendMood('Craving McDonald\'s 🍟')" class="mood-btn">🍟 Craving Fries</button>
             </div>
 
-            <!-- Timer Box (Shows after Yes is clicked) -->
-            <div id="timerBox" class="timer-container" style="display: none;">
-                <h2 class="hero-title">Every Second With You Is My Favorite Memory</h2>
-                <p id="officialDateText" class="hero-subtitle">Together since...</p>
-
-                <!-- Together Timer -->
-                <div class="counter-grid">
-                    <div class="counter-box">
-                        <span id="daysNum" class="counter-num">0</span>
-                        <span class="counter-label">Days</span>
-                    </div>
-                    <div class="counter-box">
-                        <span id="hoursNum" class="counter-num">0</span>
-                        <span class="counter-label">Hours</span>
-                    </div>
-                    <div class="counter-box">
-                        <span id="minsNum" class="counter-num">0</span>
-                        <span class="counter-label">Mins</span>
-                    </div>
-                    <div class="counter-box">
-                        <span id="secsNum" class="counter-num">0</span>
-                        <span class="counter-label">Secs</span>
-                    </div>
-                </div>
+            <div id="moodDisplay" class="current-mood-box">
+                Current Vibe: <strong id="moodText">Loading...</strong>
             </div>
 
-            <!-- Birthdays Header -->
-            <div class="birthdays-bar">
-                <div>🎂 <strong>Kim (Bubu):</strong> Feb 26, 2004</div>
+            <!-- Clocks Bar -->
+            <div class="clocks-bar">
+                <div>🇸🇪 <strong>Sweden (Dudu):</strong> <span id="timeSweden">--:--</span></div>
                 <span style="opacity: 0.3;">|</span>
-                <div>🎂 <strong>Christian (Dudu):</strong> Sep 23, 2002</div>
+                <div>🇵🇭 <strong>Cebu (Bubu):</strong> <span id="timeCebu">--:--</span></div>
             </div>
         </section>
 
-        <!-- Cards Grid -->
+        <!-- Reassurance Jar & Hugs Grid -->
         <div class="cards-grid">
 
-            <!-- Hug Counter -->
+            <!-- Virtual Hug Counter -->
             <section class="bubu-card hug-section">
                 <div>
                     <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 4px;">Send a Virtual Hug 🤗</h3>
@@ -98,34 +76,46 @@
                 </div>
             </section>
 
-            <!-- Song List Card -->
-            <section class="bubu-card">
-                <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Songs 🎶</h3>
-                <div class="songs-list">
-                    <a href="https://youtu.be/1-7ABIM2qjU?si=otH0G8MrhXN058HN&t=180" target="_blank" class="song-item song-link">
-                        <div>
-                            <div class="song-artist">Christian's Pick</div>
-                            <div class="song-title">Michael Jackson - You Rock My World</div>
-                        </div>
-                        <span style="font-size: 1.2rem;">🎧 ↗</span>
-                    </a>
+            <!-- Daily Comfort Jar -->
+            <section class="bubu-card comfort-section">
+                <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 4px;">Comfort Note Jar 🍬</h3>
+                <p style="font-size: 0.75rem; color: #78350f; opacity: 0.8; margin-bottom: 12px;">Feeling overwhelmed or missing me? Open a note!</p>
 
-                    <a href="https://www.youtube.com/watch?v=KNZH-emehxA" target="_blank" class="song-item song-link">
-                        <div>
-                            <div class="song-artist">Kim's Song</div>
-                            <div class="song-title">Shania Twain - You're Still The One</div>
-                        </div>
-                        <span style="font-size: 1.2rem;">🌹 ↗</span>
-                    </a>
+                <button onclick="openComfortJar()" class="btn-jar">🍬 Open a Sweet Note</button>
+
+                <div id="comfortBox" class="comfort-card-display" style="display:none;">
+                    <p id="comfortText">"You are doing amazing, cutie patata. I am always proud of you!"</p>
                 </div>
-                <p style="font-size: 0.7rem; color: #78350f; opacity: 0.7; text-align: center; margin-top: 14px; font-style: italic;">
-                    "You're still the one I run to, the one that I belong to..."
-                </p>
             </section>
 
         </div>
 
-        <!-- Notes Section -->
+        <!-- Songs Section -->
+        <section class="bubu-card">
+            <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Songs 🎶</h3>
+            <div class="songs-list">
+                <a href="https://www.youtube.com/watch?v=m-M1AtrxztU" target="_blank" class="song-item song-link">
+                    <div>
+                        <div class="song-artist">Christian's Pick</div>
+                        <div class="song-title">Clean Bandit - Rather Be</div>
+                    </div>
+                    <span style="font-size: 1.2rem;">🎧 ↗</span>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=KNZH-emehxA" target="_blank" class="song-item song-link">
+                    <div>
+                        <div class="song-artist">Kim's Song</div>
+                        <div class="song-title">Shania Twain - You're Still The One</div>
+                    </div>
+                    <span style="font-size: 1.2rem;">🌹 ↗</span>
+                </a>
+            </div>
+            <p style="font-size: 0.7rem; color: #78350f; opacity: 0.7; text-align: center; margin-top: 14px; font-style: italic;">
+                "You're still the one I run to, the one that I belong to..."
+            </p>
+        </section>
+
+        <!-- Live Love Notes -->
         <section class="bubu-card">
             <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 4px;">Live Love Notes 💌</h3>
             <p style="font-size: 0.75rem; color: #78350f; opacity: 0.8; margin-bottom: 12px;">Leave a sweet message for each other!</p>
@@ -142,42 +132,35 @@
             </div>
         </section>
 
-<!-- Our Memories Section -->
-<section class="bubu-card">
-    <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Favorite Memories 📸</h3>
-    <div class="memories-timeline">
-        
-        <!-- Memory 1: Burger First Date -->
-        <div class="memory-item">
-            <div class="memory-icon">🍔</div>
-            <div class="memory-content">
-                <strong>Our First Date & Video Call</strong>
-                <p>Having our very first date together on a video call. Kim's favorite part: when Christian told his mom all about it! ❤️️</p>
+        <!-- Our Favorite Memories -->
+        <section class="bubu-card">
+            <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 12px;">Our Favorite Memories 📸</h3>
+            <div class="memories-timeline">
+                <div class="memory-item">
+                    <div class="memory-icon">🍔</div>
+                    <div class="memory-content">
+                        <strong>Our First Date & Video Call</strong>
+                        <p>Having our very first date eating burgers together on a video call. Kim's favorite part: when Christian told his mom all about it right after! ❤</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <div class="memory-icon">🌹</div>
+                    <div class="memory-content">
+                        <strong>Her Very First Flowers</strong>
+                        <p>Surprising Kim with her first-ever bouquet of red roses—seeing how happy and thrilled she was made it unforgettable.</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <div class="memory-icon">🍟</div>
+                    <div class="memory-content">
+                        <strong>Being There For Each Other</strong>
+                        <p>When Kim felt overwhelmed about job searches and changing studies, Christian was right there reassuring her and treating her to McDonald's to brighten her day.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Memory 2: Red Roses -->
-        <div class="memory-item">
-            <div class="memory-icon">🌹</div>
-            <div class="memory-content">
-                <strong>Her Very First Flowers</strong>
-                <p>Surprising Kim with her first-ever bouquet of red roses—seeing how happy and thrilled she was made it unforgettable.</p>
-            </div>
-        </div>
-
-        <!-- Memory 3: McDonald's Comfort Treat -->
-        <div class="memory-item">
-            <div class="memory-icon">🍟</div>
-            <div class="memory-content">
-                <strong>Being There For Each Other</strong>
-                <p>When Kim felt overwhelmed about job searches and changing studies, Christian was right there reassuring her and treating her to McDonald's to brighten her day. When Christian's dad passed away, Kim was right there to hold him through it. His dad was always supportive, listened, and agreed with his plans—and Kim became that exact gentle, supportive listening heart in his life. 🕊️🤎</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-        <!-- Ideal Date Plan -->
+        <!-- Our Ideal Dream Date -->
         <section class="bubu-card">
             <h3 style="font-size: 1.1rem; color: #451a03; margin-bottom: 8px;">🌅 Our Ideal Dream Date</h3>
             <p style="font-size: 0.8rem; color: #78350f; opacity: 0.85; line-height: 1.4;">
@@ -192,13 +175,25 @@
             </div>
         </section>
 
+        <!-- Soft, Zero-Pressure Proposal Banner at the Bottom -->
+        <section class="bubu-card hero-card" style="border-style: dashed;">
+            <div id="proposalBox">
+                <h3 class="hero-title" style="font-size: 1.1rem;">When you are ready, Bubu... 🌹</h3>
+                <p class="hero-subtitle" style="margin-bottom: 12px;">No rush ever. Whenever you feel ready to make it official, this button is right here waiting for you!</p>
+                <button onclick="acceptProposal()" class="btn-yes">Yes, I will! ❤️</button>
+            </div>
+            <div id="timerBox" style="display:none;">
+                <h3 class="hero-title">Official Relationship Timer</h3>
+                <p id="officialDateText" class="hero-subtitle"></p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         Made with endless love by Christian (Dudu) for Kim (Bubu) • Forever & Always 💕
     </footer>
 
-    <!-- Logic & Firebase Realtime Sync -->
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyBQCrSupyRlxIuPVzxhvkA6QTygdN7grhw",
@@ -212,121 +207,90 @@
 
         let db = null;
         try {
-            if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-            }
+            if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
             db = firebase.firestore();
         } catch (e) {
-            console.warn("Firebase offline or local mode:", e);
+            console.warn("Firebase running locally:", e);
         }
 
-        let startDate = null;
-        let timerInterval = null;
         let currentRole = "dudu";
 
-        // 1. Proposal & Relationship Timer Logic
+        // 1. Dual Time Zone Clocks
+        function updateClocks() {
+            const now = new Date();
+            const timeSE = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Stockholm', hour: '2-digit', minute: '2-digit' }).format(now);
+            const timePH = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit' }).format(now);
+
+            document.getElementById('timeSweden').innerText = timeSE;
+            document.getElementById('timeCebu').innerText = timePH;
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // 2. Mood Sync
         if (db) {
-            db.collection("app_data").doc("relationship").onSnapshot((doc) => {
-                if (doc.exists && doc.data().acceptedAt) {
+            db.collection("app_data").doc("mood").onSnapshot((doc) => {
+                if (doc.exists) {
                     const data = doc.data();
-                    startDate = data.acceptedAt.toDate();
-                    showTimer(startDate, data.formattedDate);
+                    document.getElementById('moodText').innerText = `${data.mood} (Updated by ${data.sender})`;
                 } else {
-                    document.getElementById('proposalBox').style.display = "block";
-                    document.getElementById('timerBox').style.display = "none";
+                    document.getElementById('moodText').innerText = "Cozy & Loved 💕";
                 }
             });
         }
 
-        function acceptProposal() {
-            const now = new Date();
-            const formattedDate = now.toLocaleDateString('en-US', { 
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' 
-            });
-
+        function sendMood(moodStr) {
+            const sender = currentRole === 'dudu' ? 'Christian' : 'Kim';
             if (db) {
-                db.collection("app_data").doc("relationship").set({
-                    acceptedAt: firebase.firestore.Timestamp.fromDate(now),
-                    formattedDate: formattedDate,
-                    acceptedBy: currentRole === 'dudu' ? 'Christian' : 'Kim'
+                db.collection("app_data").doc("mood").set({
+                    mood: moodStr,
+                    sender: sender,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 });
             } else {
-                startDate = now;
-                showTimer(now, formattedDate);
+                document.getElementById('moodText').innerText = `${moodStr} (Updated by ${sender})`;
             }
-
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
-            }
+            if (typeof confetti === 'function') confetti({ particleCount: 25, spread: 50 });
         }
 
-        function showTimer(date, dateStr) {
-            document.getElementById('proposalBox').style.display = "none";
-            document.getElementById('timerBox').style.display = "block";
-            document.getElementById('officialDateText').innerText = `Official since: ${dateStr}`;
+        // 3. Reassurance Comfort Jar
+        const comfortNotes = [
+            "You are capable, smart, and doing so amazing in everything you do! - Dudu 🐻",
+            "Take a deep breath, cutie patata. Everything will fall into place! 🌹",
+            "I'm always in your corner, listening and supporting you no matter what. 💕",
+            "Remember how far you've come! I believe in you endlessly. 🍔",
+            "Whenever you feel tired, I'm right here to comfort you and treat you to McDonald's! 🍟"
+        ];
 
-            if (timerInterval) clearInterval(timerInterval);
-
-            function updateTimer() {
-                const now = new Date();
-                const diff = now - date;
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const mins = Math.floor((diff / 1000 / 60) % 60);
-                const secs = Math.floor((diff / 1000) % 60);
-
-                document.getElementById('daysNum').innerText = days;
-                document.getElementById('hoursNum').innerText = hours;
-                document.getElementById('minsNum').innerText = mins;
-                document.getElementById('secsNum').innerText = secs;
-            }
-
-            timerInterval = setInterval(updateTimer, 1000);
-            updateTimer();
+        function openComfortJar() {
+            const box = document.getElementById('comfortBox');
+            const randomNote = comfortNotes[Math.floor(Math.random() * comfortNotes.length)];
+            document.getElementById('comfortText').innerText = `"${randomNote}"`;
+            box.style.display = "block";
+            if (typeof confetti === 'function') confetti({ particleCount: 30, spread: 60 });
         }
 
-        // 2. Role Toggle
+        // 4. Role Toggle
         function setRole(role) {
             currentRole = role;
-            const btnDudu = document.getElementById('btnDudu');
-            const btnBubu = document.getElementById('btnBubu');
-
-            if (role === 'dudu') {
-                btnDudu.className = "role-btn active";
-                btnBubu.className = "role-btn";
-            } else {
-                btnBubu.className = "role-btn active";
-                btnDudu.className = "role-btn";
-            }
+            document.getElementById('btnDudu').className = role === 'dudu' ? "role-btn active" : "role-btn";
+            document.getElementById('btnBubu').className = role === 'bubu' ? "role-btn active" : "role-btn";
         }
 
-        // 3. Hug Counter Sync
+        // 5. Hug Sync
         let localHugs = parseInt(localStorage.getItem('bubu_hug_count') || '0');
-
         if (db) {
             db.collection("app_data").doc("hugs").onSnapshot((doc) => {
                 if (doc.exists) {
                     const data = doc.data();
                     document.getElementById('hugCount').innerText = data.count || 0;
-                    if (data.lastSender) {
-                        document.getElementById('lastHugText').innerText = `Last hug sent by ${data.lastSender}!`;
-                    }
+                    if (data.lastSender) document.getElementById('lastHugText').innerText = `Last hug sent by ${data.lastSender}!`;
                 }
-            }, (err) => {
-                document.getElementById('hugCount').innerText = localHugs;
             });
-        } else {
-            document.getElementById('hugCount').innerText = localHugs;
         }
 
         function sendHug() {
             const sender = currentRole === 'dudu' ? 'Christian (Dudu)' : 'Kim (Bubu)';
-
             if (db) {
                 db.collection("app_data").doc("hugs").set({
                     count: firebase.firestore.FieldValue.increment(1),
@@ -339,18 +303,10 @@
                 document.getElementById('hugCount').innerText = localHugs;
                 document.getElementById('lastHugText').innerText = `Last hug sent by ${sender}!`;
             }
-
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 40,
-                    spread: 60,
-                    origin: { y: 0.7 },
-                    colors: ['#f59e0b', '#d97706', '#fef3c7']
-                });
-            }
+            if (typeof confetti === 'function') confetti({ particleCount: 40, spread: 60 });
         }
 
-        // 4. Notes Sync
+        // 6. Notes Sync
         if (db) {
             db.collection("notes").orderBy("timestamp", "desc").limit(10).onSnapshot((snapshot) => {
                 const container = document.getElementById('notesContainer');
@@ -383,22 +339,34 @@
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     timeStr: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
                 });
-            } else {
-                const container = document.getElementById('notesContainer');
-                if (container.children[0] && container.children[0].innerText.includes('No notes sent yet')) {
-                    container.innerHTML = '';
-                }
-                const noteDiv = document.createElement('div');
-                noteDiv.className = "note-card";
-                noteDiv.innerHTML = `<span><strong>${sender}:</strong> ${text}</span> <span style="font-size:0.65rem; opacity:0.6;">Just now</span>`;
-                container.prepend(noteDiv);
             }
-
             input.value = '';
+            if (typeof confetti === 'function') confetti({ particleCount: 20, spread: 40 });
+        }
 
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 20, spread: 40, origin: { y: 0.8 } });
+        // 7. Soft Proposal Sync
+        if (db) {
+            db.collection("app_data").doc("relationship").onSnapshot((doc) => {
+                if (doc.exists && doc.data().acceptedAt) {
+                    document.getElementById('proposalBox').style.display = "none";
+                    document.getElementById('timerBox').style.display = "block";
+                    document.getElementById('officialDateText').innerText = `Official since: ${doc.data().formattedDate}`;
+                }
+            });
+        }
+
+        function acceptProposal() {
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+            if (db) {
+                db.collection("app_data").doc("relationship").set({
+                    acceptedAt: firebase.firestore.Timestamp.fromDate(now),
+                    formattedDate: formattedDate,
+                    acceptedBy: currentRole === 'dudu' ? 'Christian' : 'Kim'
+                });
             }
+            if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70 });
         }
     </script>
 </body>
